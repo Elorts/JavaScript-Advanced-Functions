@@ -35,15 +35,15 @@ const checkIn = function (flightNum, passanger) {
   passanger.name = 'Mr.' + passanger.name;
 
   if (passanger.passport === 2536419874) {
-    alert('Check in!');
+    // alert('Check in!');
   } else {
-    alert('Wrong Passport!');
+    // alert('Wrong Passport!');
   }
 };
 
 checkIn(flight, deividas);
-console.log(flight);
-console.log(deividas);
+///console.log(flight);
+//console.log(deividas);
 
 const newPassport = function (person) {
   person.passport = Math.trunc(Math.random() * 100000000);
