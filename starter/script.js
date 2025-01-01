@@ -106,9 +106,7 @@ greeterH('Peividas');
 greetArr('Hi')('Deividasssss');
 
 /// ************************************* 138
-console.log(
-  '******************************************  138 ***************************'
-);
+console.log('******************************************  138 **');
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -159,3 +157,6 @@ console.log(swiss);
 
 // spread used nowdays instead if apply
 book.call(swiss, ...flightData);
+
+/// ************************************* 139
+console.log('******************************************  139 **');
