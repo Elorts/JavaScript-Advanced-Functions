@@ -172,3 +172,41 @@ bookEW(23, 'Steven Williams');
 const bookEW23 = book.bind(eurowings, 23);
 bookEW23('Deividas S.');
 bookEW23('Lape Snape');
+
+//0000000000000000000000000000000000000000000000000000000000000
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log('this: ', this);
+  this.planes++;
+  console.log('this.planes: ', this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log('net: ', addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23); // null is this keyword, but nothing here or addVAT = value => value + value * 0.23;
+
+console.log('addVAT(100): ' + addVAT(100));
+
+//
+//
+//
+
+const addVATcb = function (gross) {
+  return function (tax) {
+    console.log(
+      `Before tax: ${gross}, tax: ${tax}, with tax: ${gross + gross * tax}`
+    );
+  };
+};
+
+const getWT = addVATcb(100);
+getWT(0.2);
