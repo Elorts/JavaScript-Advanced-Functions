@@ -51,3 +51,69 @@ const newPassport = function (person) {
 
 newPassport(deividas);
 checkIn(flight, deividas);
+
+/// *********************************** 136
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+console.log('/////////////////|||||');
+transformer('JavaScript is the best!', oneWord);
+
+// JS uses callbacks all the time
+const high5 = function () {
+  console.log('🙋‍♂️');
+};
+
+document.body.addEventListener('click', high5);
+
+['Strole', 'Zigmas', 'Adomas'].forEach(high5);
+
+/// *************************************** 137
+
+//-------------------------------------------------------
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterH = greet('Hello!!!!!');
+
+greeterH('Deividas');
+//-------------------------------------------------------
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+//
+
+greeterH('Peividas');
+
+greetArr('Hi')('Deividasssss');
+
+/// ************************************* 138
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+  },
+};
