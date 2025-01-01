@@ -106,6 +106,9 @@ greeterH('Peividas');
 greetArr('Hi')('Deividasssss');
 
 /// ************************************* 138
+console.log(
+  '******************************************  138 ***************************'
+);
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -115,5 +118,44 @@ const lufthansa = {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
   },
 };
+
+lufthansa.book(239, 'Deividas Strole');
+lufthansa.book(635, 'Mikas Ridikas');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// doesn't work
+//book(23, 'A B');
+
+// Call methood
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mr. Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air',
+  iataCode: 'SW',
+  bookings: [],
+};
+
+book.call(swiss, 555, 'Zigmas Ligmas');
+
+// Apply methood
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// spread used nowdays instead if apply
+book.call(swiss, ...flightData);
