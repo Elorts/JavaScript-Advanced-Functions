@@ -160,3 +160,15 @@ book.call(swiss, ...flightData);
 
 /// ************************************* 139
 console.log('******************************************  139 **');
+
+// Bind method
+//book.call(swiss, 555, 'Zigmas Ligmas');
+
+const bookEW = book.bind(eurowings);
+const bookSW = book.bind(swiss);
+bookEW(23, 'Steven Williams');
+
+// flight number preset here
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Deividas S.');
+bookEW23('Lape Snape');
