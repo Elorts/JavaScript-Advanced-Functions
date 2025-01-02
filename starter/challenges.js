@@ -52,21 +52,22 @@ const poll = {
       return;
     }
     this.answers[answer] += 1;
+    this.displayResults(this.answers);
     console.log(this.answers[answer]);
   },
-  displayResults() {},
+  displayResults(type) {
+    if (typeof type === 'string') console.log(`Poll results are ${type}`);
+    else if (typeof type === 'object') console.log(type);
+    else console.log('Unknown type!');
+  },
 };
-
-//poll.registerNewAnswer();
 
 document.querySelector('.poll').addEventListener('click', () => {
   poll.registerNewAnswer();
 });
 
-//() => {console.log('Button pushed!!!!');}
+const arr = [5, 2, 3];
+const stingas = '1, 3, 4';
+console.log(typeof arr);
 
-// poll.registerNewAnswer();
-
-//const newAnswerFunc = poll.registerNewAnswer();
-
-//newAnswerFunc.call(poll);
+poll.displayResults(stringas);
