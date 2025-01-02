@@ -36,9 +36,11 @@ GOOD LUCK 😀
 
 const poll = {
   question: 'What is your favourite programming language?',
+
   options: ['0: JavaScript', '1: Java', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section 😃
+
   answers: new Array(4).fill(0),
+
   registerNewAnswer() {
     const answer = Number(
       prompt(
@@ -49,16 +51,22 @@ const poll = {
       console.log('Invalid input!!!');
       return;
     }
-    //console.log('before: ' + this.answers[answer]);
     this.answers[answer] += 1;
-    //console.log('after: ' + this.answers[answer]);
+    console.log(this.answers[answer]);
   },
+  displayResults() {},
 };
 
-document.querySelector('.poll').addEventListener('click');
+//poll.registerNewAnswer();
 
-poll.registerNewAnswer();
+document.querySelector('.poll').addEventListener('click', () => {
+  poll.registerNewAnswer();
+});
 
-const newAnswerFunc = poll.registerNewAnswer();
+//() => {console.log('Button pushed!!!!');}
 
-newAnswerFunc.call(poll);
+// poll.registerNewAnswer();
+
+//const newAnswerFunc = poll.registerNewAnswer();
+
+//newAnswerFunc.call(poll);
