@@ -247,4 +247,19 @@ booker();
 booker();
 booker();
 
+// chack bookers details
 console.dir(booker);
+
+/// ************************************************************ 143
+console.log('*************************************************** 143');
+
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f();
