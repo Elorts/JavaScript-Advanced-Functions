@@ -253,6 +253,7 @@ console.dir(booker);
 /// ************************************************************ 143
 console.log('*************************************************** 143');
 
+// Example 1
 let f;
 const g = function () {
   const a = 23;
@@ -275,3 +276,19 @@ h();
 f();
 
 console.dir(f);
+
+// Example 2
+
+const bordPass = function (n, wait) {
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passangers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+//const perGroup = 1000;
+
+bordPass(180, 3);
