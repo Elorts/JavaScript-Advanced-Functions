@@ -211,7 +211,7 @@ const addVATcb = function (gross) {
 const getWT = addVATcb(100);
 getWT(0.2);
 
-/// *************************************************** 141
+/// ************************************************************ 141
 console.log('*************************************************** 141');
 
 const runOnce = function () {
@@ -226,3 +226,23 @@ runOnce();
 })();
 
 (() => console.log('This will never run again and again and again!'))();
+
+/// ************************************************************ 142
+console.log('*************************************************** 142');
+
+// Closers
+
+const secureBooking = function () {
+  let passCount = 0;
+
+  return function () {
+    passCount++;
+    console.log(`${passCount} passangers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
