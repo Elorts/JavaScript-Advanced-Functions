@@ -210,3 +210,19 @@ const addVATcb = function (gross) {
 
 const getWT = addVATcb(100);
 getWT(0.2);
+
+/// *************************************************** 141
+console.log('*************************************************** 141');
+
+const runOnce = function () {
+  console.log('This will never run again!');
+};
+
+runOnce();
+
+//imediately invoced function expresion
+(function () {
+  console.log('This will never run again and again!');
+})();
+
+(() => console.log('This will never run again and again and again!'))();
