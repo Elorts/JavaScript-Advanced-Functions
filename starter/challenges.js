@@ -52,21 +52,19 @@ const poll = {
       answer < this.answers.length &&
       this.answers[answer]++;
 
-    this.displayResults(this.answers);
+    this.displayResults();
+    this.displayResults('string');
   },
-  displayResults(type) {
-    if (typeof type === 'string') console.log(`Poll results are ${type}`);
-    else if (typeof type === 'object') console.log(type);
-    else console.log('Unknown type!');
+
+  displayResults(type = 'array') {
+    if (typeof type === 'array') console.log(this.answers);
+    else if (type === 'string')
+      console.log(`Poll results are ${this.answers.join(', ')}`);
   },
 };
 
-document.querySelector('.poll').addEventListener('click', () => {
-  poll.registerNewAnswer();
-});
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-const arr = [5, 2, 3];
-const stingas = '1, 3, 4';
-console.log(typeof arr);
-
-//poll.displayResults(stringas);
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
