@@ -44,16 +44,15 @@ const poll = {
   registerNewAnswer() {
     const answer = Number(
       prompt(
-        'What is your favourite programming language? \n 0: JavaScript \n 1: Java \n 2: Rust \n 3: C++ \n (Write option number)'
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
       )
     );
-    if (isNaN(answer) || answer < 0 || answer >= this.answers.length) {
-      console.log('Invalid input!!!');
-      return;
-    }
-    this.answers[answer] += 1;
+
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+
     this.displayResults(this.answers);
-    console.log(this.answers[answer]);
   },
   displayResults(type) {
     if (typeof type === 'string') console.log(`Poll results are ${type}`);
@@ -70,4 +69,4 @@ const arr = [5, 2, 3];
 const stingas = '1, 3, 4';
 console.log(typeof arr);
 
-poll.displayResults(stringas);
+//poll.displayResults(stringas);
